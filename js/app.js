@@ -1,12 +1,10 @@
 $().ready(() => {
-
     let button = $('#button');
     let date = $('#date');
     let latLng = [];
-    let apiKey = "2p2USK4aZhtiwAaABdwKhUaA0pRny8rBWYvHOFT7";
+    let apiKey = "R9R3xN5sQfaDMYtvJpsvXcH6z8WPH8ppNO1NntJt";
     let imageArr = [];
     let gifParts = [];
-
     // Map Section
     const createMap = (() => {
         var galvanize = {
@@ -22,9 +20,6 @@ $().ready(() => {
         //     map: map,
         //     title: "Galvanize - Platte"
         // });
-
-
-
         google.maps.event.addListener(map, "click", function(event) {
             imageArr = [];
             gifParts = [];
@@ -41,16 +36,11 @@ $().ready(() => {
             });
         });
     })()
-
-
-
-
     Date.prototype.addDays = function(days) {
         let dat = new Date(this.valueOf());
         dat.setDate(dat.getDate() + days);
         return dat;
     }
-
     let populatePage = () => {
         console.log(imageArr);
         for (let i = 0; i < imageArr.length; i++) {
@@ -69,14 +59,12 @@ $().ready(() => {
             if (!obj.error) {
                 var image = obj.image
                 var animatedImage = document.createElement("img");
-
                 animatedImage.src = image;
+                $('#load').remove();
                 $("#earth-images").append(animatedImage);
             }
         });
     }
-
-
     let callNasa = (dates, latLon) => {
         // console.log(dates, latLon);
         $.ajax({
@@ -86,7 +74,6 @@ $().ready(() => {
             error: () => console.log("error")
         });
     }
-
     let getDates = () => {
         let changeDate = (old) => {
             console.log(old);
@@ -100,17 +87,13 @@ $().ready(() => {
             return `${nArr[0]}-${nArr[1]}-${nArr[2]}`
         }
         let dateParsed = date.val().replace(/\s/, "-");
-
         let endDate = changeDate(dateParsed)
         // console.log([dateParsed, endDate]);
         callNasa([dateParsed, endDate], latLng);
     }
-
     let parseImage = (imageObj, i) => {
         imageArr[i] = imageObj;
-
     }
-
     let getImages = (dates) => {
         let deferreds = [];
         $.each(dates, (i) => {
@@ -128,8 +111,8 @@ $().ready(() => {
             populatePage();
         })
     }
-
     let parseDates = (dateData) => {
+      $("#earth-images").append(`<div id="load" class="loader"></div>`);
         console.log(dateData);
         let tempDates = [];
         let datesToGetImg = [];
@@ -146,7 +129,5 @@ $().ready(() => {
         console.log(datesToGetImg);
         getImages(datesToGetImg);
     }
-
     button.click(() => getDates());
-
 });

@@ -22,11 +22,8 @@
 
     <script src="js/modernizr.custom.js"></script>
     <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gifshot/0.3.2/gifshot.js"></script>
 </head>
 
 <body>
@@ -90,22 +87,26 @@
     </div>
 
     <div class="container" id="features">
-      <div class="row-fluid">
-          <h1><span>Changes</span> Team </h1>
-      </div>
+        <div class="row-fluid" id="feature-specific">
+            <h1><span>Watch</span> The Earth </h1>
+        </div>
         <div class="row-fluid">
             <!-- Kevin's Map -->
             <div id="map"></div>
             <br><br>
+        </div>
+
+        <div class="row-fluid" id="datepicker">
             <input type="date" id="date" max="2017-02-15" min="2006-12-31"><button id="button">Click</button>
-            <br><br>
+        </div>
+        <br>
+        <div class="row-fluid">
             <div class="span6">
+
                 <div class="featured-block">
                     <div id="earth-images"></div>
                 </div>
             </div>
-
-            <br><br>
         </div>
     </div>
 
@@ -133,7 +134,7 @@
                             <div class="caret-gray"></div>
                         </div>
                         <div class="team-image">
-                            <img src="img/team-img1.png" alt="">
+                            <img src="img/kevin.jpg" alt="Kevin">
                             <h5><a href="#">Kevin</a></h5>
                             <h4>Leader/Web Developer</h4>
                         </div>
@@ -146,7 +147,7 @@
                             <div class="caret-gray"></div>
                         </div>
                         <div class="team-image">
-                            <img src="img/team-img2.png" alt="">
+                            <img src="img/grace.jpg" alt="">
                             <h5><a href="#">Grace</a></h5>
                             <h4>Web Designer/Developer</h4>
                         </div>
@@ -161,7 +162,7 @@
                             <div class="caret-gray"></div>
                         </div>
                         <div class="team-image">
-                            <img src="img/team-img3.png" alt="">
+                            <img src="img/tom.jpg" alt="">
                             <h5><a href="#">Tom</a></h5>
                             <h4>Web Developer</h4>
                         </div>
@@ -197,11 +198,10 @@
     <script src="js/imagesloaded.js"></script>
     <script src="js/classie.js"></script>
     <script src="js/AnimOnScroll.js"></script>
-    <script
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWsc_cF48KNOvMY1o6Qaxa4H7NcFL_sM8">
-   </script>
-   <script src='gifshot/build/gifshot.js'></script>
-   <script src="js/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWsc_cF48KNOvMY1o6Qaxa4H7NcFL_sM8">
+    </script>
+    <script src='gifshot/build/gifshot.js'></script>
+    <script src="js/app.js"></script>
 
     <script>
         new AnimOnScroll(document.getElementById('grid'), {
